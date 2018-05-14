@@ -1,0 +1,2 @@
+class FairwayWood < ApplicationRecord
+end

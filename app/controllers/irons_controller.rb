@@ -1,0 +1,2 @@
+class IronsController < ApplicationController
+end

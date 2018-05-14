@@ -1,0 +1,2 @@
+class Wedge < ApplicationRecord
+end

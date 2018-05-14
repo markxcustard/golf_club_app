@@ -1,0 +1,2 @@
+class Putter < ApplicationRecord
+end

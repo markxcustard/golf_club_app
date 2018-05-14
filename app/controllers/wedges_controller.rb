@@ -1,0 +1,2 @@
+class WedgesController < ApplicationController
+end

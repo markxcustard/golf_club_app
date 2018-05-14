@@ -1,0 +1,2 @@
+class FairwayWoodsController < ApplicationController
+end

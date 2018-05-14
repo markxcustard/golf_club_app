@@ -1,0 +1,2 @@
+class PuttersController < ApplicationController
+end
