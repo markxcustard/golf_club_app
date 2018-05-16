@@ -70,7 +70,9 @@ var HomePage = {
     },
     isValidDriver: function(inputDriver) {
       // return inputRecipe.title.indexOf(this.titleFilter) !== -1;
-      return inputDriver.manufacturer.toLowerCase().includes(this.titleFilter);
+      return inputDriver.description
+        .toLowerCase()
+        .includes(this.titleFilter.toLowerCase());
     }
   },
   computed: {}
