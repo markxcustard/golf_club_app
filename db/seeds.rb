@@ -4,7 +4,7 @@ A radical departure from traditional driver-face design, Twist Face is engineere
 
 Twist Face presents a revolutionary new face curvature with a corrective face angle on off-center hits, engineered to reduce side spin and deliver straighter shots. By providing more loft in the high-toe and less loft in the low-heel, this groundbreaking technology produces more consistent side spin in the areas where golfers commonly mis-hit.", photo: "https://www.taylormadegolf.com/on/demandware.static/-/Sites-tmag-master-catalog/default/v1526285561815/zoom/WZ617_zoom_D.jpg", price: "$399.99")
 
-Driver.create(manufacturer: "Taylormade", model: "M3 Driver", loft: "8.5, 9.5, 10.5, 12", description: "HAMMERHEAD SLOT
+Driver.create(manufacturer: "Taylormade", model: "M4   Driver", loft: "8.5, 9.5, 10.5, 12", description: "HAMMERHEAD SLOT
 
 TaylorMade’s new Hammerhead slot creates a massive sweet spot that pushes the limit of ballspeed to produce distance and forgiveness across the entire face.
 
@@ -39,7 +39,7 @@ Wedge.create(manufacturer: "Taylormade", model: "Milled Grind Wedge", loft: "46.
 
 Choose the color that suits your eye and a bounce that fits your game, so you can start sticking it tight whenever you’re around the green.", photo: "https://www.taylormadegolf.com/on/demandware.static/-/Sites-tmag-master-catalog/default/v1526285561815/zoom/WZ721_zoom_D.jpg", price: "$149.99")
 
-Putter.create(manufacturer: "Scotty Cameron", model: "Milled Grind Wedge", putter_length: "33, 34, 35", description: "FUTURA 5.5M
+Putter.create(manufacturer: "Scotty Cameron", model: "Futura 5.5M", putter_length: "33, 34, 35", description: "FUTURA 5.5M
 Inspired by Scotty's work with players on the worldwide professional golf tours, the Futura 5.5M offers the alignment and high-MOI characteristics of a mallet coupled with a neck configuration that promotes an arced putting stroke more commonly associated with a blade. The compact mallet — about 10 percent smaller than the similarly-shaped Futura 7M — is designed for easy alignment with built-in toe flow. Its shorter, single bend shaft configuration adds more toe hang, promoting a flowing putting stroke.", photo: "https://www.scottycameron.com/media/10863/2017futura_55m_specs.jpg", price: "$399.99")
 
 Putter.create(manufacturer: "Odyssey", model: "Exo Seven Putter", putter_length: "33, 34, 35, 36, 37", description: "

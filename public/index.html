@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My App</title>
+  <title>Golf Club App</title>
   <link rel="stylesheet" href="golf_club_app.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -31,13 +31,19 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Golf Clubs
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="/#/drivers">Drivers</a>
+          <a class="dropdown-item" href="/#/fairway_woods">Fairway Woods</a>
+          <a class="dropdown-item" href="/#/hybrids">Hybrids</a>
+          <a class="dropdown-item" href="/#/irons">Irons</a>
+          <a class="dropdown-item" href="/#/wedges">Wedges</a>
+          <a class="dropdown-item" href="/#/putters">Putters</a>
+         
+         
+         
+         
         </div>
       </li>
       <li class="nav-item">
@@ -55,23 +61,21 @@
 </body>
 </html>
 
-<!-- <template id="home-page">
-  <div class="container">
-    <h1>{{ message }}</h1>
-    <p>{{ contacts }}</p>
-  </div>
-</template> -->
 
-<template id="home-page">
+<template id="drivers-page">
   <div class="container">
     <h1>All Drivers</h1>
+    <br>
     <input type="text" v-model="titleFilter" placeholder="Search by Driver">
     <datalist id="manufacturer">
       <option v-for="driver in drivers"> {{ driver.manufacturer }}</option>
     </datalist>
-    <!-- <img src="{{ currentDriver.photo }}"></img> -->
-    <img v-bind:src="currentDriver.photo">
+    <br>
+    
     <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
 
       <div class="col-md-4" v-for="driver in drivers" v-if="isValidDriver(driver)" v-bind:key="driver.id">
         <div class="card mb-2">
@@ -81,39 +85,334 @@
             <p class="card-text model "> Model: {{ driver.model }}</p>
             <p class="card-text loft"> Loft: {{ driver.loft }}</p>
             <p class="card-text description">Description: {{ driver.description }}</p>
-            <p class="card-text photo">Photo: {{ driver.photo }}</p>
             <p class="card-text price">Price: {{ driver.price }}</p>
-            <!-- <a v-bind:href="'/#/recipes/' + recipe.id" class="btn btn-primary">More info</a> -->
+            
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentDriver(driver)">
-              Launch demo modal
+              View Photo
+              
             </button>
-            <!-- <router-link v-bind:to="{ path: '/recipes/' + recipe.id }">More info</router-link> -->
+
+            
           </div>
         </div>
       </div>
     </div>
 
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{ currentDriver.photo }}
-         {{ currentContact.last_name }}
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentDriver.model }}
+          <br>
+            {{ currentDriver.price }}
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        {{ currentContact.email }}
-        {{ currentContact.phone_number }}
-      </div>
+        
+        <img width="400" height="400" v-bind:src="currentDriver.photo"></img>     
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
+</template>
 
+
+<template id="putters-page">
+  <div class="container">
+    <h1>All Putters</h1>
+    <br>
+    <input type="text" v-model="titleFilter" placeholder="Search by Putters">
+    <datalist id="description">
+      <option v-for="putter in putters"> {{ putter.description }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="putter in putters" v-if="isValidPutter(putter)" v-bind:key="putter.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ putter.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ putter.model }}</p>
+            <p class="card-text putter length"> Putter Length: {{ putter.putter_length }}</p>
+            <p class="card-text description">Description: {{ putter.description }}</p>
+            <p class="card-text price">Price: {{ putter.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentPutter(putter)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentPutter.model }}
+          <br>
+            {{ currentPutter.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentPutter.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="wedges-page">
+  <div class="container">
+    <h1>All Wedges</h1>
+    <br>
+    <input type="text" v-model="titleFilter" placeholder="Search by Wedge">
+    <datalist id="description">
+      <option v-for="wedge in wedges"> {{ wedge.description }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="wedge in wedges" v-if="isValidWedge(wedge)" v-bind:key="wedge.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ wedge.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ wedge.model }}</p>
+            <p class="card-text loft"> Loft: {{ wedge.loft }}</p>
+            <p class="card-text description">Description: {{ wedge.description }}</p>
+            <p class="card-text price">Price: {{ wedge.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentWedge(wedge)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentWedge.model }}
+          <br>
+            {{ currentWedge.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentWedge.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="putters-page">
+  <div class="container">
+    <h1>All Putters</h1>
+    <br>
+    <input type="text" v-model="titleFilter" placeholder="Search by Putters">
+    <datalist id="description">
+      <option v-for="putter in putters"> {{ putter.description }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="putter in putters" v-if="isValidPutter(putter)" v-bind:key="putter.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ putter.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ putter.model }}</p>
+            <p class="card-text putter length"> Putter Length: {{ putter.putter_length }}</p>
+            <p class="card-text description">Description: {{ putter.description }}</p>
+            <p class="card-text price">Price: {{ putter.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentPutter(putter)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentPutter.model }}
+          <br>
+            {{ currentPutter.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentPutter.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="fairways-page">
+  <div class="container">
+    <h1>All Fairway Woods</h1>
+    <br>
+    <input type="text" v-model="titleFilter" placeholder="Search by Fairway Woods">
+    <datalist id="description">
+      <option v-for="fairway wood in fairway woods"> {{ fairwaywood.manufacturer }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="fairwaywood in fairwaywoods" v-if="isValidFairwayWood(fairwaywood)" v-bind:key="fairwaywood.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ fairwaywood.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ fairwaywood.model }}</p>
+            <p class="card-text loft"> Loft: {{ fairwaywood.loft }}</p>
+            <p class="card-text description">Description: {{ fairwaywood.description }}</p>
+            <p class="card-text price">Price: {{ fairwaywood.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentDriver(driver)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentFairwayWood.model }}
+          <br>
+            {{ currentFairwayWood.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentFairwayWood.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<template id="irons-page">
+  <div class="container">
+    <h1>All Irons</h1>
+    <br>
+    <input type="text" v-model="titleFilter" placeholder="Search by Iron">
+    <datalist id="description">
+      <option v-for="iron in irons"> {{ iron.description }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="iron in irons" v-if="isValidIron(iron)" v-bind:key="iron.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ iron.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ iron.model }}</p>
+            <p class="card-text loft"> Iron Set: {{ iron.iron_set }}</p>
+            <p class="card-text description">Description: {{ iron.description }}</p>
+            <p class="card-text price">Price: {{ iron.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentIron(iron)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentIron.model }}
+          <br>
+            {{ currentIron.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentIron.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
