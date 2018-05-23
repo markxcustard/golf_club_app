@@ -26,9 +26,12 @@ var DriversPage = {
       this.currentDriver = inputDriver;
     },
     isValidDriver: function(inputDriver) {
-      return inputDriver.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputDriver.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputDriver.model.toLowerCase().includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
@@ -47,7 +50,7 @@ var FairwayWoodsPage = {
   },
 
   created: function() {
-    axios.get("/fairwaywoods").then(
+    axios.get("/fairways").then(
       function(response) {
         this.fairwaywoods = response.data;
         console.log(this.fairwaywoods);
@@ -60,16 +63,21 @@ var FairwayWoodsPage = {
       this.currentFairwayWood = inputFairwayWood;
     },
     isValidFairwayWood: function(inputFairwayWood) {
-      return inputFairwayWood.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputFairwayWood.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputFairwayWood.model
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
 };
 
 var HybridsPage = {
-  template: "#hybrids-pg",
+  template: "#hybrids-page",
   data: function() {
     return {
       hybrids: [],
@@ -92,9 +100,12 @@ var HybridsPage = {
       this.currentHybrid = inputHybrid;
     },
     isValidHybrid: function(inputHybrid) {
-      return inputHybrid.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputHybrid.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputHybrid.model.toLowerCase().includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
@@ -124,9 +135,12 @@ var PuttersPage = {
       this.currentPutter = inputPutter;
     },
     isValidPutter: function(inputPutter) {
-      return inputPutter.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputPutter.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputPutter.model.toLowerCase().includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
@@ -158,9 +172,12 @@ var WedgesPage = {
       this.currentWedge = inputWedge;
     },
     isValidWedge: function(inputWedge) {
-      return inputWedge.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputWedge.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputWedge.model.toLowerCase().includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
@@ -172,7 +189,7 @@ var IronsPage = {
     // console.log("hello");
     return {
       message: "My Golf Club App!",
-      IronsPage: [],
+      irons: [],
       currentIron: {},
       titleFilter: ""
     };
@@ -192,9 +209,12 @@ var IronsPage = {
       this.currentIron = inputIron;
     },
     isValidIron: function(inputIron) {
-      return inputIron.description
-        .toLowerCase()
-        .includes(this.titleFilter.toLowerCase());
+      return (
+        inputIron.description
+          .toLowerCase()
+          .includes(this.titleFilter.toLowerCase()) ||
+        inputIron.model.toLowerCase().includes(this.titleFilter.toLowerCase())
+      );
     }
   },
   computed: {}
@@ -203,11 +223,11 @@ var IronsPage = {
 var router = new VueRouter({
   routes: [
     { path: "/drivers", component: DriversPage },
-    { path: "/hybrids", component: HybridsPage },
+    { path: "/carbon-hybrids", component: HybridsPage },
     { path: "/putters", component: PuttersPage },
     { path: "/wedges", component: WedgesPage },
     { path: "/irons", component: IronsPage },
-    { path: "/fairwaywoods", component: FairwayWoodsPage }
+    { path: "/fairways", component: FairwayWoodsPage }
   ]
 });
 

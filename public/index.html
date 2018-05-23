@@ -31,12 +31,12 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Golf Clubs
+          Clubs
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/#/drivers">Drivers</a>
-          <a class="dropdown-item" href="/#/fairway_woods">Fairway Woods</a>
-          <a class="dropdown-item" href="/#/hybrids">Hybrids</a>
+          <a class="dropdown-item" href="/#/fairways">Fairway Woods</a>
+          <a class="dropdown-item" href="/#/carbon-hybrids">Hybrids</a>
           <a class="dropdown-item" href="/#/irons">Irons</a>
           <a class="dropdown-item" href="/#/wedges">Wedges</a>
           <a class="dropdown-item" href="/#/putters">Putters</a>
@@ -66,9 +66,9 @@
   <div class="container">
     <h1>All Drivers</h1>
     <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Driver">
-    <datalist id="manufacturer">
-      <option v-for="driver in drivers"> {{ driver.manufacturer }}</option>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="driver in drivers"> {{ driver.model }}</option>
     </datalist>
     <br>
     
@@ -121,14 +121,73 @@
 </div>
 </template>
 
+<template id="hybrids-page">
+  <div class="container">
+    <h1>All Hybrids</h1>
+    <br>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="hybrid in hybrids"> {{ hybrid.model }}</option>
+    </datalist>
+    <br>
+    
+    <div class="row" is="transition-group" name="fade">
+    <br>
+    <br>
+    <br>
+
+      <div class="col-md-4" v-for="hybrid in hybrids" v-if="isValidHybrid(hybrid)" v-bind:key="hybrid.id">
+        <div class="card mb-2">
+          
+          <div class="card-body">
+            <h4 class="card-manufacturer"> Manufacturer: {{ hybrid.manufacturer }}</h4>
+            <p class="card-text model "> Model: {{ hybrid.model }}</p>
+            <p class="card-text loft"> Loft: {{ hybrid.loft }}</p>
+            <p class="card-text description">Description: {{ hybrid.description }}</p>
+            <p class="card-text price">Price: {{ hybrid.price }}</p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentHybrid(hybrid)">
+              View Photo
+              
+            </button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ currentHybrid.model }}
+          <br>
+            {{ currentHybrid.price }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img width="400" height="400" v-bind:src="currentHybrid.photo"></img>     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
 
 <template id="putters-page">
   <div class="container">
     <h1>All Putters</h1>
     <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Putters">
-    <datalist id="description">
-      <option v-for="putter in putters"> {{ putter.description }}</option>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="putter in putters"> {{ putter.model }}</option>
     </datalist>
     <br>
     
@@ -185,9 +244,9 @@
   <div class="container">
     <h1>All Wedges</h1>
     <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Wedge">
-    <datalist id="description">
-      <option v-for="wedge in wedges"> {{ wedge.description }}</option>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="wedge in wedges"> {{ wedge.model }}</option>
     </datalist>
     <br>
     
@@ -240,72 +299,15 @@
 </div>
 </template>
 
-<template id="putters-page">
-  <div class="container">
-    <h1>All Putters</h1>
-    <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Putters">
-    <datalist id="description">
-      <option v-for="putter in putters"> {{ putter.description }}</option>
-    </datalist>
-    <br>
-    
-    <div class="row" is="transition-group" name="fade">
-    <br>
-    <br>
-    <br>
 
-      <div class="col-md-4" v-for="putter in putters" v-if="isValidPutter(putter)" v-bind:key="putter.id">
-        <div class="card mb-2">
-          
-          <div class="card-body">
-            <h4 class="card-manufacturer"> Manufacturer: {{ putter.manufacturer }}</h4>
-            <p class="card-text model "> Model: {{ putter.model }}</p>
-            <p class="card-text putter length"> Putter Length: {{ putter.putter_length }}</p>
-            <p class="card-text description">Description: {{ putter.description }}</p>
-            <p class="card-text price">Price: {{ putter.price }}</p>
-            
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentPutter(putter)">
-              View Photo
-              
-            </button>
-
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{ currentPutter.model }}
-          <br>
-            {{ currentPutter.price }}
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-        <img width="400" height="400" v-bind:src="currentPutter.photo"></img>     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-</template>
 
 <template id="fairways-page">
   <div class="container">
     <h1>All Fairway Woods</h1>
     <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Fairway Woods">
-    <datalist id="description">
-      <option v-for="fairway wood in fairway woods"> {{ fairwaywood.manufacturer }}</option>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="fairwaywood in fairwaywoods"> {{ fairwaywood.model }}</option>
     </datalist>
     <br>
     
@@ -324,7 +326,7 @@
             <p class="card-text description">Description: {{ fairwaywood.description }}</p>
             <p class="card-text price">Price: {{ fairwaywood.price }}</p>
             
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentDriver(driver)">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentFairwayWood(fairwaywood)">
               View Photo
               
             </button>
@@ -362,9 +364,9 @@
   <div class="container">
     <h1>All Irons</h1>
     <br>
-    <input type="text" v-model="titleFilter" placeholder="Search by Iron">
-    <datalist id="description">
-      <option v-for="iron in irons"> {{ iron.description }}</option>
+    <input list="model" type="text" v-model="titleFilter" placeholder="">
+    <datalist id="model">
+      <option v-for="iron in irons"> {{ iron.model }}</option>
     </datalist>
     <br>
     

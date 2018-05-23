@@ -4,7 +4,7 @@ A radical departure from traditional driver-face design, Twist Face is engineere
 
 Twist Face presents a revolutionary new face curvature with a corrective face angle on off-center hits, engineered to reduce side spin and deliver straighter shots. By providing more loft in the high-toe and less loft in the low-heel, this groundbreaking technology produces more consistent side spin in the areas where golfers commonly mis-hit.", photo: "https://www.taylormadegolf.com/on/demandware.static/-/Sites-tmag-master-catalog/default/v1526285561815/zoom/WZ617_zoom_D.jpg", price: "$399.99")
 
-Driver.create(manufacturer: "Taylormade", model: "M4   Driver", loft: "8.5, 9.5, 10.5, 12", description: "HAMMERHEAD SLOT
+Driver.create(manufacturer: "Taylormade", model: "M4 Driver", loft: "8.5, 9.5, 10.5, 12", description: "HAMMERHEAD SLOT
 
 TaylorMade’s new Hammerhead slot creates a massive sweet spot that pushes the limit of ballspeed to produce distance and forgiveness across the entire face.
 
@@ -25,7 +25,7 @@ The KING F8 Hybrid features faster and more forgiving Baffler® Rails that deliv
 Iron.create(manufacturer: "Titleist", model: "718 API", iron_set: "4-W", description: "THE ULTIMATE GAME IMPROVEMENT IRON.
 With explosive ball speed and an even more-forgiving face, 718 AP1 irons reward you in every way you can imagine. All while maintaining our classically coveted look and feel.", photo: "https://acushnet.scene7.com/is/image/titleist/TEST-product-page-5050-AP1?wid=1200&qlt=75&resMode=sharp2", price: "$980.00")
 
-Iron.create(manufacturer: "Cobra", model: "King F8 Irons", iron_set: "4-GW, 5-SW", description: "", photo: "https://www.cobragolf.com/media/catalog/product/cache/1/thumbnail/220x220/9df78eab33525d08d6e5fb8d27136e95/f/8/f8-irons-hero.jpg", price: "$915.00")
+Iron.create(manufacturer: "Cobra", model: "King F8 Irons", iron_set: "4-GW, 5-SW", description: "KING F8 IRONS COBRA’s first ever connected set of irons will improve your game. Carbon fiber tuned PWRshell™ Technology delivers superior speed and long, towering shots. COBRA Connect™ Technology proves the performance.", photo: "https://www.cobragolf.com/media/catalog/product/cache/1/thumbnail/220x220/9df78eab33525d08d6e5fb8d27136e95/f/8/f8-irons-hero.jpg", price: "$915.00")
 
 Wedge.create(manufacturer: "Vokey", model: "SM7", loft: "46.0, 48.0, 52.0, 54.0, 56.0, 58.0, 60.0, 62.0", description: "MORE CONFIDENCE. LOWER SCORES.
 Introducing SM7. Put the highest level of wedge performance in your hands.
